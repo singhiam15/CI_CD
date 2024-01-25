@@ -1,0 +1,20 @@
+pipeline{
+    agent none
+    stages{
+        stage('A'){
+            agent any
+            steps{
+                sh 'ls'
+                sh 'systemctl status jenkins'
+            }
+        }
+        stage('B'){
+            agent{
+                label 'dock'
+            }
+            steps{
+                sh 'systemctl status docker'
+            }
+        }
+    }
+}
