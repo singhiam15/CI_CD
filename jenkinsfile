@@ -6,6 +6,7 @@ pipeline{
             steps{
                 sh 'ls'
                 sh 'systemctl status jenkins'
+                sh 'sleep 10 '
             }
         }
         stage('B'){
@@ -14,6 +15,7 @@ pipeline{
             }
             steps{
                 sh 'systemctl status docker'
+                sh 'sleep 30'
             }
         }
     }
